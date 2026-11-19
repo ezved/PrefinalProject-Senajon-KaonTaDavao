@@ -15,5 +15,6 @@
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1"
-    }
+    },
+    "name": "prefinal-project-senajon-kaonta-davao"
 }

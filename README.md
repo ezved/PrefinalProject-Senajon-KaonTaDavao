@@ -6,6 +6,8 @@ A public Laravel 12 and SQLite guide to carinderias and eateries in Davao City. 
 
 ## Setup
 
+Use PHP 8.2 or later with PDO SQLite, Composer, and Node.js 20.19 or later in the 20.x series, or Node.js 22.12 or later.
+
 ```sh
 composer install
 cp .env.example .env

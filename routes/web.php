@@ -1,1 +1,32 @@
 <?php
+
+// Import DistrictController.
+use App\Http\Controllers\DistrictController;
+// Import EateryController.
+use App\Http\Controllers\EateryController;
+// Import HomeController.
+use App\Http\Controllers\HomeController;
+// Import ReviewController.
+use App\Http\Controllers\ReviewController;
+// Import ReviewerController.
+use App\Http\Controllers\ReviewerController;
+// Import Route.
+use Illuminate\Support\Facades\Route;
+
+// Show the guide's home page.
+Route::get('/', HomeController::class)->name('home');
+
+// Register the seven standard eatery actions.
+Route::resource('eateries', EateryController::class);
+
+// Post a review to an eatery or remove an existing review.
+Route::post('/eateries/{eatery}/reviews', [ReviewController::class, 'store'])->name('eateries.reviews.store');
+// Connect this HTTP request to its controller.
+Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+// Browse districts and see what an individual reviewer has written.
+Route::get('/districts', [DistrictController::class, 'index'])->name('districts.index');
+// Connect this HTTP request to its controller.
+Route::get('/districts/{district}', [DistrictController::class, 'show'])->name('districts.show');
+// Connect this HTTP request to its controller.
+Route::get('/reviewers/{user}', [ReviewerController::class, 'show'])->name('reviewers.show');
